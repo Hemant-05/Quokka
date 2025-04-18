@@ -16,7 +16,7 @@ export const isAuth = (req: Request, res: Response, next: NextFunction) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET!) as JwtPayload;
-    req.userId = decoded.userId; 
+    req.userId = decoded.userId;
     next();
   } catch (err) {
     return res.status(403).json({ message: err.message });
