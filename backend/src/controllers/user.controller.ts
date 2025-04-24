@@ -129,7 +129,8 @@ export const getAllUsers = async (req: Request, res: Response) => {
         StoryView: true,
         Share: true,
         MessageLike: true,
-        
+        blockedBy : true,
+        blocking : true,
       },
       orderBy: { updatedAt: 'desc' },
     }

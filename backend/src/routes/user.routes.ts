@@ -16,5 +16,4 @@ router.get('/:userId/following', isAuth, getFollowing);
 router.post('/block/:targetUserId', isAuth, blockUser);
 router.post('/unblock/:targetUserId', isAuth, unblockUser);
 
-
 export default router;
