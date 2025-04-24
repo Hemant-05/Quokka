@@ -24,6 +24,7 @@ export const getAllPosts = async (_req: Request, res: Response) => {
       author: true,
       comments: true,
       likes: true,
+      shares: true,
     },
     orderBy: { createdAt: 'desc' },
   });
@@ -57,21 +58,30 @@ export const deletePost = async (req: Request, res: Response) => {
   }
 };
 
-
 export const likePost = async (req: Request, res: Response) => {
   const { postId } = req.params;
   const userId = req.userId!;
 
   try {
+    // Check if the user already liked the post
+    const alreadyLiked = await prisma.like.findFirst({
+      where: {
+        userId,
+        postId,
+      },
+    });
+
+    if (alreadyLiked) {
+      return res.status(400).json({ message: "Post already liked by this user" });
+    }
     await prisma.like.create({
       data: { userId, postId },
     });
     res.json({ message: "Post liked" });
-  } catch {
+  } catch (err) {
     if (err instanceof Prisma.PrismaClientKnownRequestError && err.code === 'P2002') {
       return res.status(400).json({ message: "Post already liked by this user" });
     }
-
     res.status(500).json({ message: "Something went wrong", error: err.message });
   }
 };
@@ -127,7 +137,7 @@ export const getPostComments = async (req: Request, res: Response) => {
       orderBy: { createdAt: 'desc' },
     });
     res.json(comments);
-  } catch (err) { 
-    res.status(500).json({message : "Error while fetching comments !!",error : err.message});
+  } catch (err) {
+    res.status(500).json({ message: "Error while fetching comments !!", error: err.message });
   }
 };
