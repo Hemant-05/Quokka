@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quokka/auth/bloc/auth_bloc.dart';
 import '../../home/screens/home_screen.dart';
+import '../../home/screens/main_screen.dart';
 import '../repository/auth_repository.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -22,7 +23,7 @@ class RegisterScreen extends StatelessWidget {
         } else if (state is AuthSuccess) {
           Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (_) => const HomeScreen()),
+            MaterialPageRoute(builder: (_) => MainScreen()),
             (route) => false,
           );
         } else if (state is AuthFailure) {

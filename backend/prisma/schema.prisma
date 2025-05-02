@@ -31,8 +31,9 @@ model User {
   MessageLike MessageLike[]
 
   // ✅ Blocking relations
-  blocking  Block[] @relation("UserBlocking") // Users this user has blocked
-  blockedBy Block[] @relation("UserBlocked") // Users who blocked this user
+  blocking    Block[]       @relation("UserBlocking") // Users this user has blocked
+  blockedBy   Block[]       @relation("UserBlocked") // Users who blocked this user
+  MessageSeen MessageSeen[]
 }
 
 model Block {
@@ -65,10 +66,10 @@ model Reel {
   caption   String?
   author    User      @relation(fields: [authorId], references: [id])
   authorId  String
-  createdAt DateTime  @default(now())
-  likes     Like[]
-  comments  Comment[]
   shares    Share[]
+  comments  Comment[]
+  likes     Like[]
+  createdAt DateTime  @default(now())
 }
 
 model Story {
@@ -79,6 +80,9 @@ model Story {
   expiresAt DateTime
   author    User        @relation(fields: [authorId], references: [id])
   authorId  String
+  likes     Like[]
+  comments  Comment[]
+  shares    Share[]
   viewers   StoryView[]
 }
 
@@ -97,6 +101,8 @@ model Comment {
   createdAt DateTime @default(now())
   user      User     @relation(fields: [userId], references: [id])
   userId    String
+  story     Story?   @relation(fields: [storyId], references: [id])
+  storyId   String?
   post      Post?    @relation(fields: [postId], references: [id])
   postId    String?
   reel      Reel?    @relation(fields: [reelId], references: [id])
@@ -104,25 +110,29 @@ model Comment {
 }
 
 model Like {
-  id     String  @id @default(uuid())
-  user   User    @relation(fields: [userId], references: [id])
-  userId String
-  post   Post?   @relation(fields: [postId], references: [id])
-  postId String?
-  reel   Reel?   @relation(fields: [reelId], references: [id])
-  reelId String?
+  id      String  @id @default(uuid())
+  user    User    @relation(fields: [userId], references: [id])
+  userId  String
+  post    Post?   @relation(fields: [postId], references: [id])
+  postId  String?
+  reel    Reel?   @relation(fields: [reelId], references: [id])
+  reelId  String?
+  story   Story?  @relation(fields: [storyId], references: [id])
+  storyId String?
 
   @@unique([userId, postId]) // prevent duplicate likes
 }
 
 model Share {
-  id     String  @id @default(uuid())
-  user   User    @relation(fields: [userId], references: [id])
-  userId String
-  post   Post?   @relation(fields: [postId], references: [id])
-  postId String?
-  reel   Reel?   @relation(fields: [reelId], references: [id])
-  reelId String?
+  id      String  @id @default(uuid())
+  user    User    @relation(fields: [userId], references: [id])
+  userId  String
+  post    Post?   @relation(fields: [postId], references: [id])
+  postId  String?
+  reel    Reel?   @relation(fields: [reelId], references: [id])
+  reelId  String?
+  story   Story?  @relation(fields: [storyId], references: [id])
+  storyId String?
 }
 
 model Follow {
@@ -153,16 +163,17 @@ model ChatParticipant {
 }
 
 model Message {
-  id        String        @id @default(uuid())
-  content   String?
-  imageUrl  String?
-  videoUrl  String?
-  sender    User          @relation(fields: [senderId], references: [id])
-  senderId  String
-  chat      Chat          @relation(fields: [chatId], references: [id])
-  chatId    String
-  createdAt DateTime      @default(now())
-  likedBy   MessageLike[]
+  id          String        @id @default(uuid())
+  content     String?
+  imageUrl    String?
+  videoUrl    String?
+  sender      User          @relation(fields: [senderId], references: [id])
+  senderId    String
+  chat        Chat          @relation(fields: [chatId], references: [id])
+  chatId      String
+  createdAt   DateTime      @default(now())
+  likedBy     MessageLike[]
+  messageSeen MessageSeen[]
 }
 
 model MessageLike {
@@ -171,4 +182,13 @@ model MessageLike {
   userId    String
   message   Message @relation(fields: [messageId], references: [id])
   messageId String
+}
+
+model MessageSeen {
+  id        String   @id @default(uuid())
+  userId    String
+  messageId String
+  seenAt    DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  message   Message  @relation(fields: [messageId], references: [id])
 }

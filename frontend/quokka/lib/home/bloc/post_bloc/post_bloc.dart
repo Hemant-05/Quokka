@@ -1,11 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../models/post_model.dart';
-import '../repository/post_repository.dart';
-
-part 'post_event.dart';
-part 'post_state.dart';
-
+import '../../models/full_post_model.dart';
+import '../../repository/post_repository.dart';
+part '../post_bloc/post_event.dart';
+part '../post_bloc/post_state.dart';
 //
 class PostBloc extends Bloc<PostEvent, PostState> {
   final PostRepository postRepository;

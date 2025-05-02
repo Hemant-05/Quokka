@@ -2,7 +2,7 @@ import express from 'express';
 import {
     followUser, unfollowUser, getFollowers,
     getFollowing, getAllUsers,
-    blockUser, unblockUser
+    blockUser, unblockUser, getMe
 } from '../controllers/user.controller';
 import { isAuth } from '../middlewares/isAuth';
 
@@ -15,5 +15,6 @@ router.get('/:userId/followers', isAuth, getFollowers);
 router.get('/:userId/following', isAuth, getFollowing);
 router.post('/block/:targetUserId', isAuth, blockUser);
 router.post('/unblock/:targetUserId', isAuth, unblockUser);
+router.get('/me',isAuth, getMe);
 
 export default router;

@@ -129,13 +129,25 @@ export const getAllUsers = async (req: Request, res: Response) => {
         StoryView: true,
         Share: true,
         MessageLike: true,
-        blockedBy : true,
-        blocking : true,
+        blockedBy: true,
+        blocking: true,
       },
       orderBy: { updatedAt: 'desc' },
     }
   );
   res.json(users);
+};
+
+export const getMe = async (req: Request, res: Response) => {
+  const userId = req.userId;
+  console.log(userId);
+  try {
+    const user = await prisma.user.findUnique({ where: { id: userId }, select: { id: true, email: true, username: true, bio: true, followers: true, following: true, chats: true, posts: true, profileImage: true, blocking: true, comments: true, createdAt: true, likes: true, messages: true, reels: true, Share: true, stories: true, StoryView: true, updatedAt: true, blockedBy: true, MessageLike: true,}});
+    res.status(200).json(user);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Fetching details failed", error: err.message });
+  }
 };
 
 export const blockUser = async (req: Request, res: Response) => {

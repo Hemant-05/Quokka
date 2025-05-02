@@ -13,7 +13,7 @@ export const register = async (req: Request, res: Response) => {
     const existingUserName = await prisma.user.findUnique({
       where: { username },
     });
-    
+
     if (existingUserName) {
       return res.status(400).json({ error: 'Username already taken' });
     }
@@ -54,8 +54,3 @@ export const login = async (req: Request, res: Response) => {
   }
 };
 
-export const getMe = async (req: Request, res: Response) => {
-  const userId = req.userId;
-  const user = await prisma.user.findUnique({ where: { id: userId }, select: { id: true, email: true, username: true } });
-  res.status(200).json(user);
-};

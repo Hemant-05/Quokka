@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quokka/auth/screens/register_screen.dart';
 import 'package:quokka/utils/theme/theme_cubit.dart';
-import '../../home/screens/home_screen.dart';
+import '../../home/screens/main_screen.dart';
 import '../bloc/auth_bloc.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -24,7 +22,7 @@ class LoginScreen extends StatelessWidget {
         } else if (state is AuthSuccess) {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (_) => HomeScreen()),
+            MaterialPageRoute(builder: (_) => MainScreen()),
           );
           ScaffoldMessenger.of(
             context,

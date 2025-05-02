@@ -4,171 +4,57 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e9466ff-ff23-40b0-aaa7-e923c7707335" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/auth/bloc/auth_bloc.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/auth/bloc/auth_event.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/auth/bloc/auth_state.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/auth/dio/dio_client.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/auth/screens/login_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/auth/screens/register_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/auth/screens/splash_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/bloc/post_bloc.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/bloc/post_event.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/bloc/post_state.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/models/post_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/repository/post_repository.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/screens/home_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/widgets/post_card.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/widgets/story_circle.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/utils/constant/image_text.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/utils/theme/theme_cubit.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/utils/theme/theme_state.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Quokka.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Quokka.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="8e9466ff-ff23-40b0-aaa7-e923c7707335" name="Changes" comment="in frontend login and registration part is done, now user can login and register">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/assets/images/default_profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/cubit/bottom_nav_cubit/bottom_nav_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/cubit/bottom_nav_cubit/bottom_nav_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/cubit/home_posts_cubit/home_posts_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/cubit/home_posts_cubit/home_posts_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/cubit/profile_cubit/profile_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/cubit/profile_cubit/profile_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/models/author_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/models/bloc_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/models/chat_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/models/chat_participant_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/models/comment_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/models/follow_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/models/like_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/models/message_like_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/models/message_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/models/reel_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/models/share_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/models/story_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/models/story_view_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/models/user_model.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/repository/user_repository.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/screens/chats_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/screens/main_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/screens/profile_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/screens/reels_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/screens/search_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/backend/prisma/schema.prisma" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/controllers/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/auth.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.metadata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/analysis_options.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/app/src/main/kotlin/com/example/frontend/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/app/src/main/res/drawable-v21/launch_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/app/src/main/res/values-night/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/app/src/main/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/app/src/profile/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/assets/icons/appIcon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Flutter/Debug.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Flutter/Release.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/AppDelegate.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Runner/Runner-Bridging-Header.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/RunnerTests/RunnerTests.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/quokka/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/lib/utils/constant/icon_text.dart" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/quokka/lib/utils/constant/icon_text.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/lib/utils/constant/image_text.dart" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/quokka/lib/auth/repository/auth_repository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/lib/utils/constant/string_text.dart" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/quokka/lib/utils/constant/string_text.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/lib/utils/talk_colors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/quokka/lib/utils/talk_colors.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/lib/utils/theme/app_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/quokka/lib/utils/theme/theme.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/linux/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/linux/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/linux/flutter/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/linux/flutter/generated_plugin_registrant.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/linux/flutter/generated_plugins.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/linux/runner/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/linux/runner/main.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/linux/runner/my_application.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/linux/runner/my_application.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Flutter/Flutter-Debug.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Flutter/Flutter-Release.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner/AppDelegate.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_1024.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_256.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_64.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner/Base.lproj/MainMenu.xib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner/Configs/AppInfo.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner/Configs/Debug.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner/Configs/Release.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner/Configs/Warnings.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner/DebugProfile.entitlements" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner/MainFlutterWindow.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/Runner/Release.entitlements" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/macos/RunnerTests/RunnerTests.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pubspec.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pubspec.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/test/widget_test.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/web/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/web/icons/Icon-192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/web/icons/Icon-512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/web/icons/Icon-maskable-192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/web/icons/Icon-maskable-512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/web/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/web/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/windows/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/windows/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/windows/flutter/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/windows/flutter/generated_plugin_registrant.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/windows/flutter/generated_plugins.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/windows/runner/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/windows/runner/Runner.rc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/windows/runner/flutter_window.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/windows/runner/flutter_window.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/windows/runner/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/windows/runner/resource.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/windows/runner/resources/app_icon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/windows/runner/runner.exe.manifest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/windows/runner/utils.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/windows/runner/utils.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/windows/runner/win32_window.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/windows/runner/win32_window.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/controllers/user.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/controllers/user.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/auth.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/auth.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/routes/user.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/user.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/quokka/lib/auth/dio/dio_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/quokka/lib/auth/dio/dio_client.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/quokka/lib/auth/screens/login_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/quokka/lib/auth/screens/login_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/quokka/lib/auth/screens/register_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/quokka/lib/auth/screens/register_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/quokka/lib/auth/screens/splash_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/quokka/lib/auth/screens/splash_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/quokka/lib/home/bloc/post_bloc.dart" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/bloc/post_bloc/post_bloc.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/quokka/lib/home/bloc/post_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/bloc/post_bloc/post_event.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/quokka/lib/home/bloc/post_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/bloc/post_bloc/post_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/quokka/lib/home/models/post_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/models/post_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/quokka/lib/home/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/quokka/lib/home/screens/home_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/quokka/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/quokka/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +64,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\heman\.android\avd\Medium_Phone.avd)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=6900e2f7)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$/frontend/quokka/android">
       <ProjectState />
@@ -189,7 +75,17 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="android" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="android" type="f1a62948:ProjectNode" />
+                <item name="gradle" type="2d1252cf:ModuleNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -223,6 +119,9 @@
     &quot;accountId&quot;: &quot;f30fc43d-f03f-4260-8640-728f930a5445&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -235,34 +134,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Android App.android.app.executor&quot;: &quot;Run&quot;,
-    &quot;Flutter.main.dart.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/heman/StudioProjects/Quokka/frontend/quokka/android/settings.gradle.kts&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Android App.android.app.executor": "Run",
+    "Flutter.main.dart.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "com.google.services.firebase.aqiPopupShown": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "io.flutter.reload.alreadyRun": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/heman/StudioProjects/Quokka/frontend/quokka/android/settings.gradle.kts",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\heman\StudioProjects\Quokka\frontend\quokka\lib\auth\dio" />
-      <recent name="C:\Users\heman\StudioProjects\Quokka\frontend\quokka\lib\auth\bloc" />
-      <recent name="C:\Users\heman\StudioProjects\Quokka\frontend\quokka" />
-      <recent name="C:\Users\heman\StudioProjects\Quokka" />
+      <recent name="C:\Users\heman\StudioProjects\Quokka\frontend\quokka\assets\images" />
+      <recent name="C:\Users\heman\StudioProjects\Quokka\frontend\quokka\assets" />
+      <recent name="C:\Users\heman\StudioProjects\Quokka\frontend\quokka\lib\home\bloc\post_bloc" />
+      <recent name="C:\Users\heman\StudioProjects\Quokka\frontend\quokka\lib\home\cubit\bottom_nav_cubit" />
+      <recent name="C:\Users\heman\StudioProjects\Quokka\frontend\quokka\lib\home\cubit" />
     </key>
   </component>
   <component name="RunManager" selected="Android App.android.app">
@@ -356,6 +256,15 @@
       <option name="presentableId" value="Default" />
       <updated>1742272586177</updated>
     </task>
+    <task id="LOCAL-00001" summary="in frontend login and registration part is done, now user can login and register">
+      <option name="closed" value="true" />
+      <created>1745640144575</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1745640144576</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -364,6 +273,26 @@
         <entry key="MAIN">
           <value>
             <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="in frontend login and registration part is done, now user can login and register" />
+    <option name="LAST_COMMIT_MESSAGE" value="in frontend login and registration part is done, now user can login and register" />
+  </component>
+  <component name="play_dynamic_filters_status">
+    <option name="appIdToCheckInfo">
+      <map>
+        <entry key="com.example.quokka">
+          <value>
+            <CheckInfo lastCheckTimestamp="1745640100475" />
+          </value>
+        </entry>
+        <entry key="com.example.quokka.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1745640100475" />
           </value>
         </entry>
       </map>

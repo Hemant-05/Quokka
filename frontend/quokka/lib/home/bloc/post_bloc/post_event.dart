@@ -1,4 +1,4 @@
-part of 'post_bloc.dart';
+part of '../post_bloc/post_bloc.dart';
 
 abstract class PostEvent {}
 

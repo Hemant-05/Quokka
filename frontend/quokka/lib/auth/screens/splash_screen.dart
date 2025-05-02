@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quokka/home/screens/main_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../home/screens/home_screen.dart';
 import 'login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -28,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
     if (token != null) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (_) => const HomeScreen()),
+        MaterialPageRoute(builder: (_) => MainScreen()),
       );
     } else {
       Navigator.pushReplacement(

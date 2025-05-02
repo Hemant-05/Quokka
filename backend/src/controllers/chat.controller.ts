@@ -93,21 +93,63 @@ export const getUserChats = async (req: Request, res: Response) => {
                     }
                 }
             },
+            orderBy: {
+                createdAt: 'desc' // optional: if you want to sort by recent activity
+            },
             include: {
                 participants: {
-                    include: { user: true, chat: true, }
+                    include: {
+                        user: {
+                            select: {
+                                id: true,
+                                username: true,
+                                email: true,
+                                profileImage: true,
+                            }
+                        }
+                    }
                 },
                 messages: {
+                    take: 1,
                     orderBy: { createdAt: 'desc' },
-                    take: 1
+                    include: {
+                        sender: {
+                            select: {
+                                id: true,
+                                username: true,
+                                email: true,
+                                profileImage: true,
+                            }
+                        }
+                    }
                 }
             }
         });
-        res.json(chats);
+
+        // For each chat, filter the "other" user
+        const formattedChats = chats.map(chat => {
+            const otherUsers = chat.participants
+                .filter(p => p.userId !== userId)
+                .map(p => p.user);
+
+            return {
+                id: chat.id,
+                isGroup: chat.isGroup,
+                name: chat.isGroup ? chat.name : otherUsers[0]?.username || "Unknown",
+                otherUser: chat.isGroup ? null : otherUsers[0],
+                participants: chat.participants.map(p => p.user),
+                lastMessage: chat.messages[0] || null,
+                createdAt: chat.createdAt,
+            };
+        });
+
+        res.json(formattedChats);
     } catch (err) {
+        console.error(err);
         res.status(500).json({ error: err.message });
     }
 };
+
 
 export const deleteChat = async (req: Request, res: Response) => {
     const { chatId } = req.params;
@@ -157,27 +199,26 @@ export const deleteChat = async (req: Request, res: Response) => {
 export const deleteMessage = async (req: Request, res: Response) => {
     const userId = req.userId!;
     const { messageId } = req.params;
-  
+
     try {
-      const message = await prisma.message.findUnique({
-        where: { id: messageId }
-      });
-  
-      if (!message) {
-        return res.status(404).json({ message: "Message not found" });
-      }
-  
-      if (message.senderId !== userId) {
-        return res.status(403).json({ message: "You can only delete your own messages" });
-      }
-  
-      await prisma.message.delete({
-        where: { id: messageId }
-      });
-  
-      res.json({ message: "Message deleted successfully" });
+        const message = await prisma.message.findUnique({
+            where: { id: messageId }
+        });
+
+        if (!message) {
+            return res.status(404).json({ message: "Message not found" });
+        }
+
+        if (message.senderId !== userId) {
+            return res.status(403).json({ message: "You can only delete your own messages" });
+        }
+
+        await prisma.message.delete({
+            where: { id: messageId }
+        });
+
+        res.json({ message: "Message deleted successfully" });
     } catch (err) {
-      res.status(500).json({ message: "Something went wrong", error: err.message });
+        res.status(500).json({ message: "Something went wrong", error: err.message });
     }
-  };
-  
+};
