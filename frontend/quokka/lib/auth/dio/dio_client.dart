@@ -1,10 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../utils/constant/data.dart';
+
 class DioClient {
+
   static final Dio dio = Dio(
     BaseOptions(
-      baseUrl: 'http://192.168.55.162:5000/api',
+      baseUrl: Local_data.base_url,
       headers: {'Content-Type': 'application/json'},
     ),
   );

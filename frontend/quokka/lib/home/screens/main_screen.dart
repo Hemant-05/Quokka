@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../cubit/bottom_nav_cubit/bottom_nav_cubit.dart';
+import '../models/user_model.dart';
+import '../repository/user_repository.dart';
 import 'home_screen.dart';
 import 'reels_screen.dart';
 import 'chats_list_screen.dart';
 import 'profile_screen.dart';
 import 'search_screen.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
   final List<Widget> _screens = [
     HomeScreen(),
     ReelsScreen(),

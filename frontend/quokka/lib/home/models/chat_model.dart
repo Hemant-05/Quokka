@@ -4,39 +4,33 @@ import 'message_model.dart';
 
 class Chat {
   final String id;
-  final String userId;
-  final String chatId;
-  final DateTime joinedAt;
+  final DateTime createdAt;
   final List<ChatParticipant>? chatParticipants;
   final Message? lastMessage;
-  final int? unseenCount;
   final String? name;
   final List<Message>? messages;
+  final Map<String, dynamic>? otherUser;
 
   Chat({
     this.name,
     this.lastMessage,
-    this.unseenCount,
     this.chatParticipants,
     this.messages,
+    this.otherUser,
     required this.id,
-    required this.userId,
-    required this.chatId,
-    required this.joinedAt,
+    required this.createdAt,
   });
 
   factory Chat.fromJson(Map<String, dynamic> json) {
     return Chat(
       id: json['id'],
-      userId: json['userId'],
-      chatId: json['chatId'],
       name: json['name'],
-      lastMessage: Message.fromJson(json['lastMessage']),
-      unseenCount: json['unseenCount'],
-      joinedAt: DateTime.parse(json['joinedAt']),
-      chatParticipants: (json['chatParticipants'] as List<dynamic>?)
+      lastMessage: json['lastMessage'] != null? Message.fromJson(json['lastMessage']) : null,
+      otherUser: json['otherUser'],
+      createdAt: DateTime.parse(json['createdAt']),
+      chatParticipants: json['chatParticipants'] != null? (json['chatParticipants'] as List<dynamic>?)
           ?.map((e) => ChatParticipant.fromJson(e))
-          .toList(),
+          .toList() : null,
       messages: (json['messages'] as List<dynamic>?)?.map((e) => Message.fromJson(e)).toList(),
     );
   }

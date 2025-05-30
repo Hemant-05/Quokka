@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import http from 'http';
 import { Server } from 'socket.io';
-import jwt from 'jsonwebtoken';
 import authRoutes from './routes/auth.routes';
 import postRoutes from './routes/post.routes';
 import userRoutes from './routes/user.routes';
@@ -25,51 +24,62 @@ app.use('/api/users', userRoutes);
 app.use('/api/chats/', chatRoutes);
 
 const io = new Server(server, {
-    cors: {
-        origin: '*', // restrict this to frontend domain in production
-        methods: ['GET', 'POST']
-    }
-});
-
-io.use((socket, next) => {
-    const token = socket.handshake.auth.token;
-    try {
-        const user = jwt.verify(token, process.env.JWT_SECRET!);
-        socket.data.userId = user.userId;
-        next();
-    } catch (err) {
-        next(new Error("Authentication error"));
-    }
+  cors: {
+    origin: '*', // Allow all for development. Restrict in production.
+  },
 });
 
 io.on('connection', (socket) => {
-    const userId = socket.data.userId;
-    console.log(`✅ User connected: ${userId}`);
+  console.log(`User connected: ${socket.id}`);
 
-    socket.on('joinRoom', (roomId) => {
-        socket.join(roomId); // for chatId
-    });
+socket.on('send-message', async (data) => {
+    const {
+      senderId,       // UUID of sender (user)
+      chatId,         // ID of chat room (Chat table)
+      content,        // Text content of message (optional)
+      imageUrl,       // Optional image
+      videoUrl        // Optional video
+    } = data;
 
-    socket.on('sendMessage', async ({ chatId, content }) => {
-        // Save to DB using Prisma
-        const newMessage = await prisma.message.create({
-            data: {
-                content,
-                chatId,
-                senderId: userId,
-            },
-            include: {
-                sender: true,
-            }
-        });
+    try {
+      const savedMessage = await prisma.message.create({
+        data: {
+          senderId,
+          chatId,
+          content,
+          imageUrl,
+          videoUrl,
+        },
+        include: {
+          sender: true, // Optional: to send full sender info back
+        }
+      });
 
-        io.to(chatId).emit('receiveMessage', newMessage); // Send to all clients in that room
-    });
+      // Emit to all users in the room
+      io.to(chatId).emit('receive-message', savedMessage);
 
-    socket.on('disconnect', () => {
-        console.log(`❌ User disconnected: ${userId}`);
-    });
+    } catch (error) {
+      console.error("Error saving message:", error);
+    }
+  });
+
+
+  socket.on('join-chat', (chatId) => {
+    socket.join(chatId);
+  });
+  socket.on('leave-chat', (chatId) => {
+    socket.leave(chatId);
+  });
+
+  socket.on('disconnect', () => {
+    console.log(`User disconnected: ${socket.id}`);
+  });
 });
+
+server.listen(PORT, () => {
+  console.log('Socket.IO server running on http://localhost:${PORT}');
+});
+
 
 app.get('/', (req, res) => {
     return res.send('API is running');

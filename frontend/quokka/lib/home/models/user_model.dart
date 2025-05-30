@@ -1,10 +1,8 @@
 import 'package:quokka/home/models/user_post_model.dart';
 
 import 'bloc_model.dart';
-import 'chat_model.dart';
 import 'comment_model.dart';
 import 'follow_model.dart';
-import 'full_post_model.dart';
 import 'like_model.dart';
 import 'message_model.dart';
 
@@ -18,7 +16,6 @@ class UserModel {
   final DateTime updatedAt;
   final List<Follow> followers;
   final List<Follow> following;
-  final List<Chat> chats;
   final List<UserPostModel> posts;
   final List<Block> blocking;
   final List<Comment> comments;
@@ -41,7 +38,6 @@ class UserModel {
     required this.updatedAt,
     required this.followers,
     required this.following,
-    required this.chats,
     required this.posts,
     required this.blocking,
     required this.comments,
@@ -66,7 +62,6 @@ class UserModel {
       updatedAt: DateTime.parse(json['updatedAt']),
       followers: (json['followers'] as List).map((e) => Follow.fromJson(e)).toList(),
       following: (json['following'] as List).map((e) => Follow.fromJson(e)).toList(),
-      chats: (json['chats'] as List).map((e) => Chat.fromJson(e)).toList(),
       posts: (json['posts'] as List).map((e) => UserPostModel.fromJson(e)).toList(),
       blocking: (json['blocking'] as List).map((e) => Block.fromJson(e)).toList(),
       comments: (json['comments'] as List).map((e) => Comment.fromJson(e)).toList(),
@@ -79,5 +74,29 @@ class UserModel {
       blockedBy: json['blockedBy'] ?? [],
       messageLike: json['MessageLike'] ?? [],
     );
+  }
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'email': email,
+      'username': username,
+      'bio': bio,
+      'profileImage': profileImage,
+      'createdAt': createdAt.toIso8601String(),
+      'updatedAt': updatedAt.toIso8601String(),
+      'followers': followers.map((e) => e.toJson()).toList(),
+      'following': following.map((e) => e.toJson()).toList(),
+      'posts': posts.map((e) => e.toJson()).toList(),
+      'blocking': blocking.map((e) => e.toJson()).toList(),
+      'comments': comments.map((e) => e.toJson()).toList(),
+      'likes': likes.map((e) => e.toJson()).toList(),
+      'messages': messages.map((e) => e.toJson()).toList(),
+      'reels': reels,
+      'share': share,
+      'stories': stories,
+      'storyView': storyView,
+      'blockedBy': blockedBy,
+      'messageLike': messageLike,
+    };
   }
 }

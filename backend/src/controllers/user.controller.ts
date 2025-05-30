@@ -120,14 +120,14 @@ export const getAllUsers = async (req: Request, res: Response) => {
         posts: true,
         reels: true,
         stories: true,
-        comments: true,
-        likes: true,
+        // comments: true,
+        // likes: true,
         followers: true,
         following: true,
         chats: true,
         messages: true,
         StoryView: true,
-        Share: true,
+        // Share: true,
         MessageLike: true,
         blockedBy: true,
         blocking: true,
@@ -142,7 +142,7 @@ export const getMe = async (req: Request, res: Response) => {
   const userId = req.userId;
   console.log(userId);
   try {
-    const user = await prisma.user.findUnique({ where: { id: userId }, select: { id: true, email: true, username: true, bio: true, followers: true, following: true, chats: true, posts: true, profileImage: true, blocking: true, comments: true, createdAt: true, likes: true, messages: true, reels: true, Share: true, stories: true, StoryView: true, updatedAt: true, blockedBy: true, MessageLike: true,}});
+    const user = await prisma.user.findUnique({ where: { id: userId }, select: { id: true, email: true, username: true, bio: true, followers: true, following: true, posts: true, profileImage: true, blocking: true, comments: true, createdAt: true, likes: true, messages: true, reels: true, Share: true, stories: true, StoryView: true, updatedAt: true, blockedBy: true, MessageLike: true, } });
     res.status(200).json(user);
   } catch (err) {
     console.error(err);

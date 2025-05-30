@@ -1,9 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:quokka/auth/dio/dio_client.dart';
+import 'package:quokka/home/repository/user_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthRepository {
   final Dio _dio = DioClient.dio;
+  UserRepository userRepo = UserRepository();
 
   Future<void> login(String email, String password) async {
 
@@ -15,6 +17,7 @@ class AuthRepository {
     final token = response.data['token'];
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('token', token);
+    await userRepo.getMyProfile();
   }
 
   Future<void> register(String name, String email, String password) async {
@@ -27,15 +30,12 @@ class AuthRepository {
     final token = response.data['token'];
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('token', token);
+    await userRepo.getMyProfile();
   }
 
   Future<void> logout() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove('token');
-  }
-
-  Future<Map<String, dynamic>> getMe() async {
-    final response = await _dio.get('/auth/me');
-    return response.data;
+    await userRepo.clearUserFromPrefs();
   }
 }

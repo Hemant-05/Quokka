@@ -110,7 +110,6 @@ export const getUserChats = async (req: Request, res: Response) => {
                     }
                 },
                 messages: {
-                    take: 1,
                     orderBy: { createdAt: 'desc' },
                     include: {
                         sender: {
@@ -137,8 +136,9 @@ export const getUserChats = async (req: Request, res: Response) => {
                 isGroup: chat.isGroup,
                 name: chat.isGroup ? chat.name : otherUsers[0]?.username || "Unknown",
                 otherUser: chat.isGroup ? null : otherUsers[0],
-                participants: chat.participants.map(p => p.user),
+                participants: chat.isGroup ? chat.participants.map(p => p.user) : null,
                 lastMessage: chat.messages[0] || null,
+                messages: chat.messages,
                 createdAt: chat.createdAt,
             };
         });
