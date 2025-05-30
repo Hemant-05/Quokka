@@ -5,6 +5,7 @@ class Comment {
   final String userId;
   final String? postId;
   final String? reelId;
+  final Map<String,dynamic>? user;
 
   Comment({
     required this.id,
@@ -13,6 +14,7 @@ class Comment {
     required this.userId,
     this.postId,
     this.reelId,
+    this.user,
   });
 
   factory Comment.fromJson(Map<String, dynamic> json) {
@@ -23,6 +25,7 @@ class Comment {
       userId: json['userId'],
       postId: json['postId'],
       reelId: json['reelId'],
+      user: json['user'],
     );
   }
   Map<String, dynamic> toJson() {
@@ -33,6 +36,7 @@ class Comment {
       'userId': userId,
       'postId': postId,
       'reelId': reelId,
+      'user': user,
     };
   }
 }
