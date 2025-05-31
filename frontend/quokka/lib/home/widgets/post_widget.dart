@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quokka/utils/constant/data.dart';
+import 'package:share_plus/share_plus.dart';
 import '../bloc/post_bloc/post_bloc.dart';
 import '../models/full_post_model.dart';
 import 'comment_sheet_widget.dart';
@@ -54,7 +56,14 @@ class PostWidget extends StatelessWidget {
                 },
               ),
               SizedBox(width: 12),
-              Icon(Icons.share),
+              IconButton(
+                onPressed: () {
+                  final content =
+                      "Check out this post: ${post.content}\nPosted by: ${post.author.username}";
+                  SharePlus.instance.share(ShareParams(title : "Share Post using Quokka" ,text: content)); // You can also share URLs or media
+                },
+                icon: Icon(Icons.share_rounded),
+              ),
             ],
           ),
         ),

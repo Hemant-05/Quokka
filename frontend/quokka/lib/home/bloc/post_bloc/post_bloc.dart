@@ -28,6 +28,7 @@ class PostBloc extends Bloc<PostEvent, PostState> {
     List<Post> oldPosts = [];
     if (currentState is PostLoaded) {
       oldPosts = currentState.posts;
+      _posts.clear();
       _posts = oldPosts;
     }
 
@@ -37,6 +38,7 @@ class PostBloc extends Bloc<PostEvent, PostState> {
       final newPosts = await postRepository.fetchPosts(page, limit);
       final posts = oldPosts + newPosts;
       final hasReachedMax = newPosts.length < limit;
+      _posts = posts;
       emit(PostLoaded(posts: posts, hasReachedMax: hasReachedMax));
       if (!hasReachedMax) page++;
     } catch (e) {
@@ -46,14 +48,13 @@ class PostBloc extends Bloc<PostEvent, PostState> {
 
   Future<void> _onLikePost(LikePost event, Emitter<PostState> emit) async {
     postRepository.likePost(event.postId);
-    emit(PostLiked());
+    emit(PostLoaded(posts: _posts, hasReachedMax: false));
   }
 
   Future<void> _onCommentPost(
     CommentPost event,
     Emitter<PostState> emit,
   ) async {
-    print("comment called ${event.comment}");
     postRepository.addComment(event.postId, event.comment);
     emit(PostLoaded(posts: _posts, hasReachedMax: false));
   }
