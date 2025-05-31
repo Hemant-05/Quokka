@@ -22,7 +22,20 @@ export const getAllPosts = async (_req: Request, res: Response) => {
   const posts = await prisma.post.findMany({
     include: {
       author: true,
-      comments: true,
+      comments: {
+        select: {
+          id: true,
+          content: true,
+          createdAt: true,
+          userId: true,
+          user: {
+            select: {
+              username: true,
+              email: true,
+            },
+          },
+        },
+      },
       likes: true,
       shares: true,
     },
@@ -59,7 +72,10 @@ export const deletePost = async (req: Request, res: Response) => {
 };
 
 export const likePost = async (req: Request, res: Response) => {
-  const { postId } = req.params;
+  const { id: postId } = req.params;
+  if (!postId) {
+    return res.status(400).json({ message: "Post ID is required" });
+  }
   const userId = req.userId!;
 
   try {
@@ -74,25 +90,48 @@ export const likePost = async (req: Request, res: Response) => {
     if (alreadyLiked) {
       return res.status(400).json({ message: "Post already liked by this user" });
     }
+    // const like = await prisma.like.create({
+    //   data: { userId, postId },
+    // });
     await prisma.like.create({
-      data: { userId, postId },
+      data: {
+        post: {
+          connect: { id: postId },
+        },
+        user: {
+          connect: { id: userId },
+        },
+      },
     });
     res.json({ message: "Post liked" });
   } catch (err) {
     if (err instanceof Prisma.PrismaClientKnownRequestError && err.code === 'P2002') {
-      return res.status(400).json({ message: "Post already liked by this user" });
+      return res.status(400).json({ message: "Post already liked by this user errr" });
     }
     res.status(500).json({ message: "Something went wrong", error: err.message });
   }
 };
 
 export const unlikePost = async (req: Request, res: Response) => {
-  const { postId } = req.params;
+  const { id: postId } = req.params;
   const userId = req.userId!;
+  try {
+    const alreadyUnLiked = await prisma.like.findFirst({
+      where: {
+        userId,
+        postId,
+      },
+    });
 
-  await prisma.like.deleteMany({
-    where: { postId, userId },
-  });
+    if (!alreadyUnLiked) {
+      return res.status(400).json({ message: "Post not liked by this user" });
+    }
+    await prisma.like.deleteMany({
+      where: { postId, userId },
+    });
+  } catch (err) {
+    return res.status(500).json({ message: "Something went wrong", error: err.message });
+  }
   res.json({ message: "Post unliked" });
 };
 
